@@ -8,14 +8,13 @@ def generateStsNode(readPath):
 
     file = open(savePath, 'w').close()
     file_generate = open(savePath, mode='a')
-    file_generate.write(str('space') + "," + str('time') + ","+ str('electricity'))  # 表头
+    file_generate.write(str('space') + "," + str('time') + ","+ str('electricity'))  
     file_generate.write('\n')
 
     nodeList = list(pd.unique(readDf['from_node']))
     timeStampList = [i for i in range(0,10)]  # research horizon
     electricityList = [0,1,2,3,4]  # electricity set
 
-    # 全连接式生成时空电节点
     for i in nodeList:
         space = i
         for t in timeStampList:
